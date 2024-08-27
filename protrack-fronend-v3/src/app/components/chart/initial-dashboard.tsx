@@ -37,7 +37,7 @@ const InitialDashboard = ({
   return (
     <div>
       <div className="flex flex-col gap-1 pl-1 overflow-x-auto w-full sm:w-[80vw] sm:max-w-[80vw]">
-        {activeProjectData.length == 0 ? (
+        {activeProjectData?.length == 0 ? (
           <DashboardIntro />
         ) : (
           <div className="flex gap-2 flex-wrap">
@@ -67,34 +67,49 @@ const InitialDashboard = ({
             </Card>
             <Card className="w-1/3">
               <CardBody>
-                <span className="font-semibold text-blue-900 text-lg text-blueGray-700 border-b-2">
-                  Project details
-                </span>
                 <div className="flex mt-1">
-                  <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-blue-400 mt-4">
-                    <span className="flex items-center justify-center text-xl">
-                      {projectCount}
-                    </span>
-                  </div>
+                  <span className="font-semibold text-blue-900 text-lg text-blueGray-700 border-b-2">
+                    Monthly calender
+                  </span>
+
                   <Button
                     color="primary"
                     className="absolute right-0 bottom-0 mb-4 mr-4 flex items-center"
                     size="sm"
                     variant="bordered"
                     // endContent={<MdGridView className="h-4 w-4" />}
-                    onClick={() => router.push("/dashboard/project")}
+                    onClick={() => router.push("/calender")}
+                  >
+                    View Calender
+                  </Button>
+                </div>
+              </CardBody>
+            </Card>
+            {/* <Card className="w-1/3">
+              <CardBody>
+                <span className="font-semibold text-blue-900 text-lg text-blueGray-700 border-b-2">
+                  monthly calender
+                </span>
+                <div className="flex mt-1">
+                  <Button
+                    color="primary"
+                    className="absolute right-0 bottom-0 mb-4 mr-4 flex items-center"
+                    size="sm"
+                    variant="bordered"
+                    // endContent={<MdGridView className="h-4 w-4" />}
+                    onClick={() => router.push("/calender")}
                   >
                     View Details
                   </Button>
                 </div>
               </CardBody>
-            </Card>
+            </Card> */}
           </div>
         )}
         {tmpUser?.role.includes("systemadmin") && (
           <div className="p-5">
             <div>
-              {activeProjectData.length > 0 && (
+              {activeProjectData?.length > 0 && (
                 <div className=" flex-col gap-4">
                   <table className="border-collapse">
                     <thead>
@@ -113,7 +128,7 @@ const InitialDashboard = ({
                       </tr>
                     </thead>
                     <tbody>
-                      {activeProjectData.map((project) => (
+                      {activeProjectData?.map((project) => (
                         <React.Fragment key={project.projectid}>
                           <tr>
                             <td
