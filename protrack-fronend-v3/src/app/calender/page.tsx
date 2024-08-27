@@ -12,8 +12,7 @@ const page = () => {
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
         headerToolbar={{
-          start: "dayGridMonth", // will normally be on the left. if RTL, will be on the right
-          // start: "dayGridMonth,timeGridWeek,timeGridDay", // will normally be on the left. if RTL, will be on the right
+          start: "dayGridMonth", 
           center: "title",
           end: "today prev,next", 
         }}
